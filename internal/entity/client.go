@@ -13,7 +13,7 @@ type Client struct {
 	Email     string
 	Accounts  []*Account
 	CreatedAt time.Time
-	updatedAt time.Time
+	UpdatedAt time.Time
 }
 
 func NewClient(name string, email string) (*Client, error) {
@@ -22,7 +22,7 @@ func NewClient(name string, email string) (*Client, error) {
 		Name:      name,
 		Email:     email,
 		CreatedAt: time.Now(),
-		updatedAt: time.Now(),
+		UpdatedAt: time.Now(),
 	}
 
 	err := client.Validate()
@@ -46,7 +46,7 @@ func (c *Client) Validate() error {
 func (c *Client) Update(name string, email string) error {
 	c.Name = name
 	c.Email = email
-	c.updatedAt = time.Now()
+	c.UpdatedAt = time.Now()
 	err := c.Validate()
 	if err != nil {
 		return err
